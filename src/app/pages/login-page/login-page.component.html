@@ -7,13 +7,13 @@
                <hr>
                <p>I am a..</p>
                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="profile" id="student" value="student" checked>
+                  <input class="form-check-input" [(ngModel)]='selectedProfile' type="radio" name="profile" id="student" value="student">
                   <label class="form-check-label">
                      Student
                   </label>
                </div>
                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="profile" id="teacher" value="teacher">
+                  <input class="form-check-input" [(ngModel)]='selectedProfile' type="radio" name="profile" id="teacher" value="teacher">
                   <label class="form-check-label">
                      Teacher
                   </label>
@@ -27,8 +27,8 @@
                      </p>
                   </div>
                   <div class="col-6 align-items-right">
-                     <button class="btn btn-default">Cancel</button>
-                     <button class="btn btn-primary">Login</button>
+                     <button class="btn btn-default" (click)='selectedProfile=null'>Cancel</button>
+                     <button class="btn btn-primary" [disabled]="!selectedProfile" (click)="redirect()">Login</button>
                   </div>
                </div>
             </div>
