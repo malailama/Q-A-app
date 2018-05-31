@@ -5,11 +5,37 @@
    <form>
       <input class="form-group" type="checkbox" name="selectAll" [(ngModel)]="selectAll" (change)="onSelectAll($event.target.checked)">
       <label class="form-group-label">Select All</label>
-      <button class="btn btn-secondary" [disabled]='assignmentQuestions.length <= 0'>Assign</button>
+      <button class="btn btn-secondary" [disabled]='assignmentQuestions.length <= 0' data-toggle="modal" data-target="#assignModal">Assign</button>
       <button class="btn btn-primary" (click)='redirectAddQuestion()'>Author New Question</button>
       <div *ngFor="let ques of mockQuestions">
-            <input class="form-group" type="checkbox" [checked]='selectAll' name="availableQuestion" id="ques.qId" (change)="onChange(ques, $event.target.checked)">
+         <input class="form-group" type="checkbox" [checked]='selectAll' name="availableQuestion" id="ques.qId" (change)="onChange(ques, $event.target.checked)">
          <label class="form-group-label">{{ques.qId}} {{ques.title}}</label>
       </div>
    </form>
+</div>
+
+<div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="assignModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Assign Questions</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <h5>Select students</h5>
+            <input class="form-group" type="checkbox" name="selectAllStudents" [(ngModel)]="selectAllStudents" (change)="onSelectAllStudents($event.target.checked)">
+            <label class="form-group-label">Select All</label>
+            <div *ngFor="let stu of allStudents">
+               <input class="form-group" type="checkbox" [checked]='selectAllStudents' name="selectStudents" id="stu.sId" (change)="onChangeStudents(stu, $event.target.checked)">
+               <label class="form-group-label">{{stu.sId}} {{stu.name}}</label>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" [disabled]='assignStudents.length <= 0' (click)="assign()">Assign Questions</button>
+         </div>
+      </div>
+   </div>
 </div>

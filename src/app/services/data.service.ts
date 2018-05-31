@@ -34,4 +34,17 @@ export class DataService {
       console.log('Student Updated: ', MOCKSTUDENTS);
       return of(callback);
   }
+
+  updateAssigned(studs: Student[]): Observable<any> {
+   let callback: string;
+     studs.map(st => {
+        MOCKSTUDENTS.map(s => {
+           if(st.sId === s.sId){
+              s.assignedQuestions = st.assignedQuestions;
+              callback = 'success';
+           }
+        })
+     })
+     return of(callback);
+  }
 }
