@@ -91,6 +91,8 @@ export class AddQuestionComponent implements OnInit {
         this.newQuestion.mcqCorrect = [];
      }
 
+     this.dataService.addQuetion(this.newQuestion);
+
      console.log('Submit form triggered ', this.newQuestion);
      this.submitted = true;
   }

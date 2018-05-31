@@ -9,6 +9,7 @@ export class Question {
    public instructions?: string;
    public correctAnswer?: string;
    public selectedAnswer?: string;
+   public mcqSelectedAnswer?: number[];
 }
 
 export class Student {
