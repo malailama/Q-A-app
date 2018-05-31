@@ -1,0 +1,117 @@
+<div class='container' style="margin-top: 5%; margin-bottom: 5%;">
+   <div [hidden]="submitted">
+      <div class="row">
+         <h5>Question Builder</h5>
+      </div>
+      <form (ngSubmit)="onSubmit()" #questionForm=ngForm>
+         <!--
+            Type: {{type}} Title: {{title}} Description: {{description}} Instructions: {{instructions}} IdealAnswer: {{idealAnswer}}
+            mcqA: {{mcqA}} mcqB: {{mcqB}} mcqC: {{mcqC}} mcqD: {{mcqD}}
+         -->
+         <div class="form-group">
+            <label class="form-group">What type of questions you want to create?</label>
+            <div class="form-check">
+               <input class="form-check-input" [(ngModel)]='type' type="radio" name="mcq" id="mcq" value="mcq" (change)="initialiseAllValues()">
+               <label class="form-check-label" for="mcq">
+                  Multiple choice question
+               </label>
+            </div>
+            <div class="form-check">
+               <input class="form-check-input" [(ngModel)]='type' type="radio" name="submission" id="submission" value="submission" (change)="initialiseAllValues()">
+               <label class="form-check-label" for="submission">
+                  Submission type Question
+               </label>
+            </div>
+            <div class="form-check">
+               <input class="form-check-input" [(ngModel)]='type' type="radio" name="passage" id="passage" value="passage" (change)="initialiseAllValues()">
+               <label class="form-check-label" for="passage">
+                  Passage(text) type Question
+               </label>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="form-group" for="title">Question Title:</label>
+            <input class="form-control" type="text" [(ngModel)]='title' name="title" id="title" placeholder="Type your question title here..."
+               required>
+         </div>
+         <div class="form-group">
+            <label class="form-group" for="description">Question Description:</label>
+            <input class="form-control" type="text" [(ngModel)]='description' name="description" id="description" placeholder="Type your question description here..."
+               required>
+         </div>
+         <div class="form-group" *ngIf="type === 'passage'">
+            <label class="form-group" for="idealAnswer">Ideal Answer:</label>
+            <input class="form-control" type="text" [(ngModel)]='idealAnswer' name="idealAnswer" id="idealAnswer" placeholder="Type your answer here...">
+         </div>
+         <div class="form-group" *ngIf="type === 'mcq'">
+            <div class="row">
+               <div class="col-10">
+                  <label>Answer Options:</label>
+               </div>
+               <div class="col-2 text-center">
+                  <label>Right Answers:</label>
+               </div>
+            </div>
+            <div class="row form-group">
+               <div class="col-10">
+                  <input class="form-control" type="text" [(ngModel)]='mcqA' name='mcqA' placeholder="Type Option A here...">
+               </div>
+               <div class="col-2 text-center">
+                  <input class="form-check-input" type="checkbox" name="mcqOption" id="1" (change)="mcqRightChange(0, $event.target.checked)">
+               </div>
+            </div>
+            <div class="row form-group">
+               <div class="col-10">
+                  <input class="form-control" type="text" [(ngModel)]='mcqB' name='mcqB' placeholder="Type Option B here...">
+               </div>
+               <div class="col-2 text-center">
+                  <input class="form-check-input" type="checkbox" name="mcqOption" id="2" (change)="mcqRightChange(1, $event.target.checked)">
+               </div>
+            </div>
+            <div class="row form-group">
+               <div class="col-10">
+                  <input class="form-control" type="text" [(ngModel)]='mcqC' name='mcqC' placeholder="Type Option C here...">
+               </div>
+               <div class="col-2 text-center">
+                  <input class="form-check-input" type="checkbox" name="mcqOption" id="3" (change)="mcqRightChange(2, $event.target.checked)">
+               </div>
+            </div>
+            <div class="row form-group">
+               <div class="col-10">
+                  <input class="form-control" type="text" [(ngModel)]='mcqD' name='mcqD' placeholder="Type Option D here...">
+               </div>
+               <div class="col-2 text-center">
+                  <input class="form-check-input" type="checkbox" name="mcqOption" id="4" (change)="mcqRightChange(3, $event.target.checked)">
+               </div>
+            </div>
+         </div>
+         <div class="form-group">
+            <label class="form-group" for="instructions">Instructions:</label>
+            <input class="form-control" type="text" [(ngModel)]='instructions' name="instructions" id='instructions' placeholder="Type instructions here ... (e.g. file size, file format, do's and don'ts)">
+         </div>
+         <hr style="margin: 2% 0 2% 0">
+         <div class="row">
+            <div class="col-9">
+               Click Author to create a new question and add it to the list of questions.
+            </div>
+            <div class="col-3 text-right">
+               <button class="btn btn-secondary" (click)="goBack()">Cancel</button>
+               <button type="submit" class="btn btn-primary" [disabled]="!questionForm.form.valid">Author</button>
+            </div>
+         </div>
+      </form>
+   </div>
+   <div [hidden]="!submitted">
+      <div class="row text-center" style="margin-top: 5%;">
+         <div class="col-12">
+            <h4>Your question has been created and added to list of questions.</h4>
+         </div>
+      </div>
+      <div class="row text-center">
+         <div class="col-12">
+            <button class="btn btn-secondary" (click)="goBack()">Go Back</button>
+            <button class="btn btn-primary" (click)="initialiseAllValues()">Create new question</button>
+         </div>
+      </div>
+   </div>
+</div>
