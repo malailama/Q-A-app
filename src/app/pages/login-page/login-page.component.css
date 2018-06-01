@@ -1,0 +1,31 @@
+.page-title{
+   font-size: 18px;
+   color: #555C69;
+}
+
+.sub-title{
+   margin-bottom: 30px;
+   font-size: 15px;
+   color: #545454;
+}
+
+.op-radio {
+   margin: 0 0 15px 15px;
+   font-size: 14px;
+   font-weight: 500;
+   color: #545454;
+}
+
+.f-text {
+   font-size: 14px;
+   color: #545454;
+}
+
+.footer-btn {
+   display: flex;
+   justify-content: flex-end;
+}
+
+.l-margin {
+   margin-left: 15px;
+}

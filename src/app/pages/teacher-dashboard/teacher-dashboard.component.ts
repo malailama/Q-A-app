@@ -19,6 +19,8 @@ export class TeacherDashboardComponent implements OnInit {
    assignStudents: Student[] = [];
    selectAllStudents: boolean;
 
+   typeHeading = {'mcq': 'MCQ (Quiz)', 'para': 'Passage (text)', 'text': 'Submission'};
+
    constructor(
       public router: Router,
       public dataService: DataService,
@@ -26,7 +28,10 @@ export class TeacherDashboardComponent implements OnInit {
 
    ngOnInit() {
       this.dataService.getQuestions()
-         .subscribe(mockQs => this.mockQuestions = mockQs);
+         .subscribe(mockQs => {
+            this.mockQuestions = mockQs;
+            console.log('mockQs ', this.mockQuestions);
+         });
 
       this.dataService.getStudents()
          .subscribe(stu => this.allStudents = stu);

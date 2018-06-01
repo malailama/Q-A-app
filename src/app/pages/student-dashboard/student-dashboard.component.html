@@ -1,23 +1,35 @@
-<div class="container" style="margin-top: 5%">
-   <div class="row">
+<div class="container top-margin">
+   <div class="row page-title-row">
       <div class="col-12">
-         <h5>Select your profile</h5>
+         <h5 class="page-title">Select your student profile: </h5>
          <select class="form-control" [(ngModel)]="selectedStudent" id="student" name="student" (ngModelChange)="onChange($event)">
             <option *ngFor="let st of allStudents" [ngValue]="st">{{st.sId}} {{st.name}}</option>
          </select>
       </div>
    </div>
-   <div class="row" style="margin-top: 5%;">
+   <div class="row page-title-row" style="margin-top: 5%;">
       <div class="col-12">
-         <h5>Your Questions</h5>
+         <h5 class="sub-title">Questions assigned to you:</h5>
       </div>
    </div>
-   <div class="row" *ngFor=" let qs of allQuestions;">
-      <div class="col-12">
-         <p>{{qs.qId}} {{qs.title}} {{qs.description}}</p>
-         <button class="btn btn-primary" data-toggle="modal" data-target="#questionModal" (click)="selectQuestion(qs)">Attempt</button>
+   <div class="q-container" *ngFor=" let ques of allQuestions;">
+      <div class="item">
+         <div class="item-left-2">
+            <p class="s-head o-margin">Q. Id.</p>
+            <p class="s-no o-margin">{{ques.qId}}</p>
+         </div>
+         <div class="item-center-2">
+            <p class="o-margin h-padding p-title">{{ques.title}}</p>
+            <p class="o-margin h-padding p-description">{{ques.description}}</p>
+         </div>
+         <div class="item-right-2">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#questionModal" (click)="selectQuestion(ques)">Attempt</button>
+         </div>
       </div>
    </div>
+
+
+
 </div>
 
 <!-- Modal -->
@@ -25,22 +37,22 @@
    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">{{selectedQuestion.title}}</h5>
+            <h5 class="modal-title page-title" id="exampleModalLongTitle">{{selectedQuestion.title}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
             </button>
          </div>
          <div class="modal-body">
             <div *ngIf="selectedQuestion.type !== 'mcq'">
-               <p>{{selectedQuestion.description}}</p>
-               <input type="multi-text" class="form-control" [(ngModel)]="selectedQuestion.selectedAnswer" placeholder="Type your answer here...">
+               <p class="p-description">{{selectedQuestion.description}}</p>
+               <textarea type="multi-text" class="form-control f-input" [(ngModel)]="selectedQuestion.selectedAnswer" placeholder="Type your answer here..." cols="40" rows="5"></textarea>
             </div>
             <div *ngIf="selectedQuestion.type === 'mcq'">
                <p>{{selectedQuestion.description}}</p>
-               <label>Answer choices: </label>
-               <div *ngFor="let choice of selectedQuestion.mcqChoices; let i = index">
-                  <label for="choice">{{choice}}</label>
-                  <input class="form-check-input" type="checkbox" [name]="i" [id]="i" (change)="mcqAnswerChange(i, $event.target.checked)">
+               <label class="p-description">Answer choices: </label>
+               <div *ngFor="let choice of selectedQuestion.mcqChoices; let i = index" class="an-choice">
+                  <input type="checkbox" [name]="i" [id]="i" (change)="mcqAnswerChange(i, $event.target.checked)">
+                  <label for="choice" class="an-choice-text">{{choice}}</label>
                </div>
             </div>
          </div>

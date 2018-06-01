@@ -27,6 +27,7 @@ export class StudentDashboardComponent implements OnInit {
 
   onChange() {
      console.log('Selected ', this.selectedStudent);
+     this.allQuestions = [];
      this.allQuestions = this.selectedStudent.assignedQuestions;
   }
 
