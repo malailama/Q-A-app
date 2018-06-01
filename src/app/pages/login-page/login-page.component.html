@@ -3,18 +3,18 @@
       <div class="offset-3 col-6">
          <div class="card" style="margin-top: 20%;">
             <div class="card-body">
-               <h5 class="card-title">Please Select Login</h5>
+               <h5 class="card-title page-title">Please Select Login</h5>
                <hr>
-               <p>I am a..</p>
+               <p class="sub-title">I am a ...</p>
                <div class="form-check">
                   <input class="form-check-input" [(ngModel)]='selectedProfile' type="radio" name="profile" id="student" value="student">
-                  <label class="form-check-label">
+                  <label class="form-check-label op-radio">
                      Student
                   </label>
                </div>
                <div class="form-check">
                   <input class="form-check-input" [(ngModel)]='selectedProfile' type="radio" name="profile" id="teacher" value="teacher">
-                  <label class="form-check-label">
+                  <label class="form-check-label op-radio">
                      Teacher
                   </label>
                </div>
@@ -22,13 +22,13 @@
             <div class="card-footer">
                <div class="row">
                   <div class="col-6">
-                     <p>
+                     <p class="f-text">
                         Please login to continue
                      </p>
                   </div>
-                  <div class="col-6 align-items-right">
-                     <button class="btn btn-secondary" (click)='selectedProfile=null'>Cancel</button>
-                     <button class="btn btn-primary" [disabled]="!selectedProfile" (click)="redirect()">Login</button>
+                  <div class="col-6 footer-btn">
+                     <button class="btn btn-outline-secondary" (click)='selectedProfile=null'>Cancel</button>
+                     <button class="btn btn-primary l-margin" [disabled]="!selectedProfile" (click)="redirect()">Login</button>
                   </div>
                </div>
             </div>

@@ -13,7 +13,7 @@ export class AddQuestionComponent implements OnInit {
    // Question Properties
    qId: number;
    // 3 types: 'submission','mcq','passage'
-   type: string = 'submission'
+   type: string = 'text'
    title: string;
    description: string;
    idealAnswer: string;

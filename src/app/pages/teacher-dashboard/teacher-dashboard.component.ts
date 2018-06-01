@@ -28,7 +28,10 @@ export class TeacherDashboardComponent implements OnInit {
 
    ngOnInit() {
       this.dataService.getQuestions()
-         .subscribe(mockQs => this.mockQuestions = mockQs);
+         .subscribe(mockQs => {
+            this.mockQuestions = mockQs;
+            console.log('mockQs ', this.mockQuestions);
+         });
 
       this.dataService.getStudents()
          .subscribe(stu => this.allStudents = stu);

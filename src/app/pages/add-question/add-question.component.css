@@ -1,0 +1,72 @@
+.container1 {
+   margin-top: 5%; 
+   margin-bottom: 2%;
+}
+
+.container2 {
+   margin-top: 2%; 
+   margin-bottom: 5%;
+}
+
+.page-title-row {
+   margin: 8px 0 8px 0;
+}
+
+.page-title {
+   color: #555C69;
+}
+
+.q-head {
+   font-size: 15px;
+   color: #545454;
+}
+
+.op-radio {
+   font-size: 14px;
+   color: #545454;
+}
+
+.f-input {
+   background: #F9F9F9;
+   font-size: 13px;
+   padding: 10px;
+}
+
+.p-cont2{
+   font-size: 14px;
+   color: #545454;
+}
+
+.footer {
+   position: absolute;
+   height: 28vh;
+   width: 100%;
+   left: 0;
+   right: 0;
+   background-color: #F4F4F4;
+}
+
+.o-margin {
+   margin: 0;
+}
+
+.success-box {
+   height: 180px;
+   width: 60%;
+   padding: 20px;
+   background-color: #F4F4F4;;
+   margin: auto;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.s-message {
+   font-size: 18px;
+   color: #545454;
+   margin-bottom: 15px;
+}
+
+::placeholder {
+   color: #b4b4b4;
+}

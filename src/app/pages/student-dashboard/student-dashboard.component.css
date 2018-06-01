@@ -1,0 +1,98 @@
+.top-margin {
+   margin-top: 5%;
+}
+
+.page-title-row {
+   margin: 8px 0 8px 0;
+}
+
+.page-title{
+   color: #555C69;
+}
+
+.q-container{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.item {
+   height: 70px;
+   width: 100%;
+   border: solid #E4E4E4 1px;
+   box-shadow: 0px 1.5px 0 #EEEEEE;
+   margin: 10px 0 10px 0;
+   display: inline-flex;
+}
+
+.item-left-2 {
+   width: 6%;
+   padding-left: 10px;
+   border-right: solid #E4E4E4 1px;
+   background-color: #F9F9F9;
+}
+
+.item-center-2 {
+   width: 77%;
+   border-right: solid #E4E4E4 1px;
+}
+
+.item-right-2 {
+   width: 17%;
+   padding: 10px 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #F9F9F9;
+}
+
+.s-head {
+   font-size: 11px;
+   padding-top: 10px;
+   color: grey;
+}
+
+.s-no {
+   font-size: 20px;
+}
+
+.o-margin {
+   margin: 0;
+}
+
+.h-padding {
+   padding: 0 20px;
+}
+
+.p-title {
+   margin-top: 10px;
+}
+
+.p-description {
+   color: grey;
+   font-size: 14px;
+}
+
+.sub-title {
+   font-size: 16px;
+   color: #545454;
+}
+
+.an-choice {
+   padding: 0;
+}
+
+.an-choice-text {
+   padding-left: 10px;
+   color: #545454;
+}
+
+.f-input {
+   background: #F9F9F9;
+   font-size: 13px;
+   padding: 10px;
+}
+
+::placeholder {
+   color: #b4b4b4;
+}
