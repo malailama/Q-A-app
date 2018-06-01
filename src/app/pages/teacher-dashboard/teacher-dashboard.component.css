@@ -118,3 +118,20 @@
    color: grey;
    font-size: 14px;
 }
+
+.p-modal {
+   color: grey;
+   font-size: 15px;
+}
+
+.p-modal-choice {
+   padding-left: 10px;
+   font-size: 14px;
+   color: #545454;
+}
+
+.p-select-all {
+   padding-left: 10px;
+   font-size: 14px;
+   color: #505050;
+}

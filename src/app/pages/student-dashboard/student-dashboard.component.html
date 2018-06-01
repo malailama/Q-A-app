@@ -12,14 +12,6 @@
          <h5 class="sub-title">Questions assigned to you:</h5>
       </div>
    </div>
-   <!--
-   <div class="row" *ngFor=" let qs of allQuestions;">
-      <div class="col-12">
-         <p>{{qs.qId}} {{qs.title}} {{qs.description}}</p>
-         <button class="btn btn-primary" data-toggle="modal" data-target="#questionModal" (click)="selectQuestion(qs)">Attempt</button>
-      </div>
-   </div>
-   -->
    <div class="q-container" *ngFor=" let ques of allQuestions;">
       <div class="item">
          <div class="item-left-2">
