@@ -1,3 +1,6 @@
+/*
+ *  In memory data service is being used in place of this file
+*/
 import { Question, Student} from './models';
 
 export const MOCKQS: Question[] = [
@@ -7,7 +10,7 @@ export const MOCKQS: Question[] = [
 ];
 
 export const MOCKSTUDENTS: Student[] = [
-   {sId: 1, name: 'John', assignedQuestions: [this.MOCKQS[0], this.MOCKQS[1] ] },
-   {sId: 2, name: 'Jacob', assignedQuestions: [this.MOCKQS[0], this.MOCKQS[2] ]},
-   {sId: 3, name: 'Mark', assignedQuestions: [this.MOCKQS[1], this.MOCKQS[2]]},
+   {id: 1, name: 'John', assignedQuestions: [this.MOCKQS[0], this.MOCKQS[1] ] },
+   {id: 2, name: 'Jacob', assignedQuestions: [this.MOCKQS[0], this.MOCKQS[2] ]},
+   {id: 3, name: 'Mark', assignedQuestions: [this.MOCKQS[1], this.MOCKQS[2]]},
 ]

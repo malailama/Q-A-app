@@ -8,9 +8,10 @@ export class InMemoryDataService implements InMemoryDbService {
          { id: 2, type: 'text', title: 'Biggest Planet', description: 'Name of the biggest Planet?', idealAnswer: '', mcqChoices: [], mcqCorrect: null, instructions: '', correctAnswer: 'Jupiter', selectedAnswer: '', mcqSelectedAnswer: [] },
          { id: 3, type: 'para', title: 'Book', description: 'Summary of your favorite book', idealAnswer: '', mcqChoices: [], mcqCorrect: null, instructions: '', correctAnswer: '', selectedAnswer: '', mcqSelectedAnswer: [] },
       ];
+      
       const mstudents: Student[] = [
          {
-            sId: 1,
+            id: 1,
             name: 'John',
             assignedQuestions:
                [
@@ -19,7 +20,7 @@ export class InMemoryDataService implements InMemoryDbService {
                ]
          },
          {
-            sId: 2,
+            id: 2,
             name: 'Jacob',
             assignedQuestions:
                [
@@ -28,7 +29,7 @@ export class InMemoryDataService implements InMemoryDbService {
                ]
          },
          {
-            sId: 3,
+            id: 3,
             name: 'Mark',
             assignedQuestions:
                [

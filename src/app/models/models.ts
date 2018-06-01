@@ -13,7 +13,7 @@ export class Question {
 }
 
 export class Student {
-   public sId: number;
+   public id: number;
    public name: string;
    public assignedQuestions?: Question[]
 }

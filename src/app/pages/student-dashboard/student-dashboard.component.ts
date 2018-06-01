@@ -22,33 +22,33 @@ export class StudentDashboardComponent implements OnInit {
 
   ngOnInit() {
    this.dataServie.getStudents()
-      .subscribe( stu => {this.allStudents = stu; console.log('All Students ', this.allStudents)})
+      .subscribe( stu => this.allStudents = stu)
   }
 
   onChange() {
-     console.log('Selected ', this.selectedStudent);
+   //   console.log('Selected ', this.selectedStudent);
      this.allQuestions = [];
      this.allQuestions = this.selectedStudent.assignedQuestions;
   }
 
   selectQuestion(qs: Question) {
      this.selectedQuestion = qs;
-     console.log('Selected Question ', this.selectedQuestion)
+   //   console.log('Selected Question ', this.selectedQuestion)
   }
 
   mcqAnswerChange(choiceIndex: number, isChecked: boolean){
-     console.log("MCQ Option: ", choiceIndex,' Selected: ', isChecked);
+   //   console.log("MCQ Option: ", choiceIndex,' Selected: ', isChecked);
      if(isChecked) {
         this.selectedQuestion.mcqSelectedAnswer.push(choiceIndex);
      } else {
         let index = this.selectedQuestion.mcqSelectedAnswer.findIndex(x => x === choiceIndex);
         this.selectedQuestion.mcqSelectedAnswer.splice(index, 1);
      }
-     console.log('Selected Question: ', this.selectedQuestion.mcqSelectedAnswer);
+   //   console.log('Selected Question: ', this.selectedQuestion.mcqSelectedAnswer);
   }
 
   saveAnswer(){
-     console.log('Answer ', this.selectedQuestion.selectedAnswer);
+   //   console.log('Answer ', this.selectedQuestion.selectedAnswer);
      this.selectedStudent.assignedQuestions.map(qn => {
         if(qn.id === this.selectedQuestion.id) {
            qn.selectedAnswer = this.selectedQuestion.selectedAnswer;
@@ -56,14 +56,6 @@ export class StudentDashboardComponent implements OnInit {
      })
 
      this.dataServie.updateStudent(this.selectedStudent)
-      .subscribe(x =>{
-         if(x === 'success') {
-            alert('Answer saved Succesfully');
-         } else {
-            alert('Answer could not be saved. Please try again.');
-         }
-
-         console.log('Callback ',x)
-      })
+      .subscribe(() => alert('Answer saved successfully'))
   }
 }

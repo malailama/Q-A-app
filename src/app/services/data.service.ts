@@ -49,30 +49,22 @@ export class DataService {
       )
    }
 
-   updateStudent(stud: Student): Observable<any> {
-      let callback: string;
-      MOCKSTUDENTS.map(st => {
-         if (st.sId === stud.sId) {
-            console.log('Student found')
-            st.assignedQuestions = stud.assignedQuestions;
-            callback = 'success';
-         }
-      })
-      console.log('Student Updated: ', MOCKSTUDENTS);
-      return of(callback);
+   updateStudent(stud: Student): Observable<Student> {
+      return this.http.put<Student>(this.studentsUrl, stud, httpOptions)
    }
 
    updateAssigned(studs: Student[]): Observable<any> {
+      // return this.http.put(this.studentsUrl, studs, httpOptions)
       let callback: string;
       studs.map(st => {
          MOCKSTUDENTS.map(s => {
-            if (st.sId === s.sId) {
+            if (st.id === s.id) {
                s.assignedQuestions = st.assignedQuestions;
                callback = 'success';
             }
          })
       })
-      console.log('Student Updated: ', MOCKSTUDENTS);
+      // console.log('Student Updated: ', MOCKSTUDENTS);
       return of(callback);
    }
 

@@ -97,7 +97,7 @@ export class AddQuestionComponent implements OnInit {
      })
      ;
 
-     console.log('Submit form triggered ', this.newQuestion);
+   //   console.log('Submit form triggered ', this.newQuestion);
      this.submitted = true;
   }
 
