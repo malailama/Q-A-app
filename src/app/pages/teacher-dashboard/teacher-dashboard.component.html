@@ -1,19 +1,41 @@
-<div class="container" style="margin-top: 5%;">
-   <div class="row">
-      <h5>Questions list</h5>
+<div class="container top-margin">
+   <div class="row page-title-row">
+      <h5 class="page-title">Questions list</h5>
    </div>
+   <!-- Practice-->
    <form>
-      <input class="form-group" type="checkbox" name="selectAll" [(ngModel)]="selectAll" (change)="onSelectAll($event.target.checked)">
-      <label class="form-group-label">Select All</label>
-      <button class="btn btn-secondary" [disabled]='assignmentQuestions.length <= 0' data-toggle="modal" data-target="#assignModal">Assign</button>
-      <button class="btn btn-primary" (click)='redirectAddQuestion()'>Author New Question</button>
-      <div *ngFor="let ques of mockQuestions">
-         <input class="form-group" type="checkbox" [checked]='selectAll' name="availableQuestion" id="ques.qId" (change)="onChange(ques, $event.target.checked)">
-         <label class="form-group-label">{{ques.qId}} {{ques.title}}</label>
+      <div class="item">
+         <div class="item-left">
+            <input class="v-margin" type="checkbox" name="selectAll" [(ngModel)]="selectAll" (change)="onSelectAll($event.target.checked)">
+            <label class="v-margin h-margin small-head">Select All</label>
+         </div>
+         <div class="item-main">
+            <p class="head-detail v-margin">Select questions to Asssign</p>
+            <button class="btn btn-secondary h-margin" [disabled]='assignmentQuestions.length <= 0' data-toggle="modal" data-target="#assignModal">Assign</button>
+            <button class="btn btn-outline-primary h-margin" (click)='redirectAddQuestion()'>Author New Question</button>
+         </div>
+      </div>
+      <div *ngFor="let ques of mockQuestions" class="q-container">
+         <input class="form-group v-margin h2-margin" type="checkbox" [checked]='selectAll' name="availableQuestion" id="ques.qId" (change)="onChange(ques, $event.target.checked)">
+         <div class="item">
+            <div class="item-left-2">
+               <p class="s-head o-margin">S.No.</p>
+               <p class="s-no o-margin">{{ques.qId}}</p>
+            </div>
+            <div class="item-center-2">
+               <p class="o-margin h-padding p-title">{{ques.title}}</p>
+               <p class="o-margin h-padding p-description">{{ques.description}}</p>
+            </div>
+            <div class="item-right-2">
+               <p class="o-margin p-head">Question Type</p>
+               <p class="o-margin p-type"> {{typeHeading[ques.type]}}</p>
+            </div>
+         </div>
       </div>
    </form>
 </div>
 
+<!--Modal for assigning questions to Students-->
 <div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="assignModalCenterTitle" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
