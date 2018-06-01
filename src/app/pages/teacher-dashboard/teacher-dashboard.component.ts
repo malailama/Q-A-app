@@ -43,11 +43,11 @@ export class TeacherDashboardComponent implements OnInit {
          this.assignmentQuestions = [];
       }
       if (isChecked) {
-         console.log(q.qId, ' Checked', );
+         console.log(q.id, ' Checked', );
          this.assignmentQuestions.push(q);
       } else {
-         console.log(q.qId, ' Unchecked', )
-         let index = this.assignmentQuestions.findIndex(x => x.qId === q.qId)
+         console.log(q.id, ' Unchecked', )
+         let index = this.assignmentQuestions.findIndex(x => x.id === q.id)
          let rem = this.assignmentQuestions.splice(index, 1);
       }
 

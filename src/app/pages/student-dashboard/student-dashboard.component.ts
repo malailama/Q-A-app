@@ -50,7 +50,7 @@ export class StudentDashboardComponent implements OnInit {
   saveAnswer(){
      console.log('Answer ', this.selectedQuestion.selectedAnswer);
      this.selectedStudent.assignedQuestions.map(qn => {
-        if(qn.qId === this.selectedQuestion.qId) {
+        if(qn.id === this.selectedQuestion.id) {
            qn.selectedAnswer = this.selectedQuestion.selectedAnswer;
         }
      })

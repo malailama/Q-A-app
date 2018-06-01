@@ -1,5 +1,5 @@
 export class Question {
-   public qId: number;
+   public id: number;
    public type: string;
    public title: string;
    public description: string;
