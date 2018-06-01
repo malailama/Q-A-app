@@ -11,7 +11,7 @@ import { DataService } from '../../services/data.service';
 export class AddQuestionComponent implements OnInit {
 
    // Question Properties
-   qId: number;
+   id: number;
    // 3 types: 'submission','mcq','passage'
    type: string = 'text'
    title: string;
@@ -44,7 +44,7 @@ export class AddQuestionComponent implements OnInit {
   }
 
   initialiseAllValues() {
-     this.qId = null;
+     this.id = null;
      this.title = null;
      this.description = null;
      this.idealAnswer = null;
@@ -69,7 +69,7 @@ export class AddQuestionComponent implements OnInit {
   }
 
   onSubmit(){
-     this.newQuestion.qId = this.allQuestions ? this.allQuestions.length+1 : 1;
+     this.newQuestion.id = this.allQuestions ? this.allQuestions.length+1 : 1;
      this.newQuestion.title = this.title ? this.title : '';
      this.newQuestion.description = this.description ? this.description : '';
      this.newQuestion.type = this.type ? this.type : '';
@@ -91,9 +91,13 @@ export class AddQuestionComponent implements OnInit {
         this.newQuestion.mcqCorrect = [];
      }
 
-     this.dataService.addQuetion(this.newQuestion);
+     this.dataService.addQuestion(this.newQuestion as Question)
+     .subscribe(qs => {
+        this.allQuestions.push(qs)
+     })
+     ;
 
-     console.log('Submit form triggered ', this.newQuestion);
+   //   console.log('Submit form triggered ', this.newQuestion);
      this.submitted = true;
   }
 

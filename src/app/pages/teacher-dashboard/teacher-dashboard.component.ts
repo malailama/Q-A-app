@@ -30,7 +30,7 @@ export class TeacherDashboardComponent implements OnInit {
       this.dataService.getQuestions()
          .subscribe(mockQs => {
             this.mockQuestions = mockQs;
-            console.log('mockQs ', this.mockQuestions);
+            // console.log('mockQs ', this.mockQuestions);
          });
 
       this.dataService.getStudents()
@@ -43,15 +43,15 @@ export class TeacherDashboardComponent implements OnInit {
          this.assignmentQuestions = [];
       }
       if (isChecked) {
-         console.log(q.qId, ' Checked', );
+         // console.log(q.id, ' Checked', );
          this.assignmentQuestions.push(q);
       } else {
-         console.log(q.qId, ' Unchecked', )
-         let index = this.assignmentQuestions.findIndex(x => x.qId === q.qId)
+         // console.log(q.id, ' Unchecked', )
+         let index = this.assignmentQuestions.findIndex(x => x.id === q.id)
          let rem = this.assignmentQuestions.splice(index, 1);
       }
 
-      console.log('Questions in array ', this.assignmentQuestions.length, this.mockQuestions.length);
+      // console.log('Questions in array ', this.assignmentQuestions.length, this.mockQuestions.length);
    }
 
    onSelectAll(allChecked: boolean) {
@@ -62,7 +62,7 @@ export class TeacherDashboardComponent implements OnInit {
       } else {
          this.assignmentQuestions = [];
       }
-      console.log('Select All ', this.assignmentQuestions.length);
+      // console.log('Select All ', this.assignmentQuestions.length);
    }
 
    onChangeStudents(s: Student, isChecked: boolean) {
@@ -73,7 +73,7 @@ export class TeacherDashboardComponent implements OnInit {
       if (isChecked) {
          this.assignStudents.push(s);
       } else {
-         let index = this.assignStudents.findIndex(x => x.sId === s.sId)
+         let index = this.assignStudents.findIndex(x => x.id === s.id)
          let rem = this.assignStudents.splice(index, 1);
       }
    }
@@ -94,15 +94,7 @@ export class TeacherDashboardComponent implements OnInit {
       })
 
       this.dataService.updateAssigned(this.assignStudents)
-      .subscribe(x =>{
-         if(x === 'success') {
-            alert('Questions assigned Succesfully');
-         } else {
-            alert('Questions could not be assigned. Please try again.');
-         }
-
-         console.log('Callback ',x)
-      })
+      .subscribe(() => alert('Questions assigned successfully'));
    }
 
    redirectAddQuestion() {

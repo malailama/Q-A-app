@@ -1,5 +1,5 @@
 export class Question {
-   public qId: number;
+   public id: number;
    public type: string;
    public title: string;
    public description: string;
@@ -13,7 +13,7 @@ export class Question {
 }
 
 export class Student {
-   public sId: number;
+   public id: number;
    public name: string;
    public assignedQuestions?: Question[]
 }

@@ -16,7 +16,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   redirect() {
-   console.log('Current value ', this.selectedProfile);
+   // console.log('Current value ', this.selectedProfile);
    if(this.selectedProfile && this.selectedProfile === 'teacher'){
       this.router.navigate(['teacher-dashboard'])
    } else {

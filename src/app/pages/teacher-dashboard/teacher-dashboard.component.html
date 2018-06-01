@@ -15,11 +15,11 @@
          </div>
       </div>
       <div *ngFor="let ques of mockQuestions" class="q-container">
-         <input class="form-group v-margin h2-margin" type="checkbox" [checked]='selectAll' name="availableQuestion" id="ques.qId" (change)="onChange(ques, $event.target.checked)">
+         <input class="form-group v-margin h2-margin" type="checkbox" [checked]='selectAll' name="availableQuestion" id="ques.id" (change)="onChange(ques, $event.target.checked)">
          <div class="item">
             <div class="item-left-2">
                <p class="s-head o-margin">S.No.</p>
-               <p class="s-no o-margin">{{ques.qId}}</p>
+               <p class="s-no o-margin">{{ques.id}}</p>
             </div>
             <div class="item-center-2">
                <p class="o-margin h-padding p-title">{{ques.title}}</p>
